@@ -1,8 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Settings</title>
-    </head>
-    <body></body>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .top-banner {
+            position: absolute;
+            display: flex;
+            top: 0;
+            left: 0;
+            background: black;
+            height: 28px;
+            width: 100vw;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .font-size-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+            grid-template-rows: 1fr;
+            overflow-x: auto;
+            white-space: nowrap;
+            max-width: 400px;
+            cursor: pointer;
+        }
+
+        .font-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid gray;
+        }
+
+        .accessibility {
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            max-width: 400px;
+        }
+
+        .tabs-container {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .tabs-container input[type="radio"] {
+            display: none;
+        }
+
+        .tab-label {
+            padding: 10px 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            margin-right: 5px;
+            position: relative;
+            top: 2px;
+            z-index: 1;
+        }
+
+        .tab-label:hover {
+            background-color: #e0e0e0;
+        }
+
+        .tabs-container input[type="radio"]:checked+.tab-label {
+            background-color: #fff;
+            border-color: #ccc;
+            border-bottom: 2px solid #fff;
+            z-index: 2;
+        }
+
+        .tab-content {
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 40px;
+            left: 0;
+            display: none;
+        }
+
+        .tabs-container input[type="radio"]:checked+.tab-label+.tab-content {
+            display: block;
+        }
+    </style>
+    <script>
+        function signOut() {
+            window.location.href = 'index.html'
+        }
+    </script>
+    <title>Settings</title>
+</head>
+
+<body>
+    <div class="top-banner" style="display: flex;">
+        <a href="homepage.html" style="color: orangered; padding-left: 5px; text-decoration: none;">&lt; Back</a>
+        <span style="color: white; justify-content: center;">Settings</span>
+        <a href="index.html" style="color: white; justify-content: center; text-decoration: none;">Sign Out</a>
+    </div>
+
+    <div class="tabs-container" style="top: 25px;">
+        <input type="radio" name="tab-group" id="tab1" checked>
+        <label for="tab1" class="tab-label">General</label>
+        <div class="tab-content">
+            <h2>Settings</h2>
+            <div class="accessibility" style="padding-left: 20px; cursor: pointer;">
+                <span>Customize my menu</span>
+            </div>
+            <br>
+            <div class="accessibility" style="padding-left: 20px; cursor: pointer;">
+                <span>Push Notification Settings</span>
+            </div>
+            <br>
+            <div class="accessibility" style="padding-left: 20px; cursor: pointer;">
+                <span>Device Settings</span>
+                <br>
+                <span style="font-size: small; color: gray;">Location, notifications, permissions, and other settings managed in the Settings app.</span>
+            </div>
+            <br>
+            <h2>Danger Zone</h2>
+            <div onclick="signOut()" class="accessibility" style="padding-right: 20px; cursor: pointer; text-align: center;">
+                <span>Sign Out</span>
+            </div>
+            <br>
+            <div onclick="signOut()" class="accessibility" style="padding-right: 20px; cursor: pointer; text-align: center;">
+                <span>↻ Reset this app</span>
+            </div>
+        </div>
+
+        <input type="radio" name="tab-group" id="tab2">
+        <label for="tab2" class="tab-label">Accessibility</label>
+        <div class="tab-content">
+            <h2>Font size</h2>
+            <div class="font-size-grid">
+                <span class="font-item"
+                    style="font-size: xx-small; border-top-left-radius: 5px; border-bottom-left-radius: 5px;">A</span>
+                <span class="font-item" style="font-size: small;">A</span>
+                <span class="font-item"
+                    style="font-size: medium; background: #cccccc; border: 1px solid #b1b1b1;">A</span>
+                <span class="font-item" style="font-size: larger;">A</span>
+                <span class="font-item"
+                    style="font-size: x-large; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">A</span>
+            </div>
+            <h2>Accessibility</h2>
+            <div class="accessibility">
+                <input id="1" type="checkbox"><label for="1" style="cursor: pointer;"> Disable auto-updating content</label>
+                <br><br>
+                <input id="2" type="checkbox"><label for="2" style="cursor: pointer;"> Disable auto-playing animations</label>
+                <br><br>
+                <input id="3" type="checkbox"><label for="3" style="cursor: pointer;"> Colorblind Mode</label>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
