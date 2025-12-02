@@ -6,7 +6,6 @@ html {
 body,html {
 	margin: 0;
 	padding: 0;
-    text-decoration: none;
 }
 
 p{
@@ -31,7 +30,6 @@ p{
     background-color: orange;
     padding: 50px 200px;
     text-align: center;
-    
 }
 
 .group{
@@ -51,4 +49,5 @@ p{
     border: 2px solid gray;
     padding: 10px;
     justify-content: center;
+    text-decoration: none;
 }
